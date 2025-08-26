@@ -40,20 +40,16 @@ def get_slot_machine_spins(rows, cols, symbols):
             current_symbols.remove(value)
             column.append(value)
         
-        # FIX: Append the completed 'column' list to the 'columns' list
         columns.append(column)
 
     return columns
 
 def print_slot_machine(columns):
-    # FIX: Correctly iterate through rows and columns to print the grid
     # This loop iterates through the rows
     for row in range(len(columns[0])):
         # This inner loop iterates through the columns
         for i, column in enumerate(columns):
-            # FIX: Check if we are on the last column to avoid the extra separator
             if i != len(columns) - 1:
-                # FIX: Access the symbol from the current column list
                 print(column[row], end=" | ")
             else:
                 print(column[row], end="")
@@ -71,8 +67,7 @@ def check_winnings(columns, lines, bet, values):
             if column[line] != symbol:
                 is_winning = False
                 break
-        
-        # If the line is a winner, calculate winnings
+                
         if is_winning:
             winnings += values[symbol] * bet
             winning_lines.append(line + 1)
